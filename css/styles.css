@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: aliceblue;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+    display: flex;
+}
+
+.formulario {
+    border: solid 2px black;
+    margin: 5rem;
+    padding: 1rem;
+    text-align: end;
+}
