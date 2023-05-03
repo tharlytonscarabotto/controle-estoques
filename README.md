@@ -6,6 +6,7 @@ Sistema básico onde são inseridos os produtos e quantidades para controle de e
 [X] Capturar os inputs adicionados no formulário 
 [X] Enviar os inputs capturados para a lista de produtos
 [X] Mostrar os novos inputs visualmente na lista
-[ ] Gravar os produtos adicionados na localStorage
+[X] Gravar os produtos adicionados na localStorage
+[ ] Eliminar a lista do HTML e usar somente o Local Storage para atualizar a lista
 [ ] Fazer com que o que está na localStorage seja jogado para a lista automaticamente
 [ ] Possibilitar a atualização destes estoques

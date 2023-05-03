@@ -1,24 +1,37 @@
-const formulario = document.querySelector('#formulario')
+let formulario = document.getElementById('formulario');
+let lista = document.getElementById('lista');
+let itens = []
 
 formulario.addEventListener('submit', (evento)=>{
-    evento.preventDefault()
+    evento.preventDefault();
 
-    criaProduto(evento.target.elements['produto'].value, evento.target.elements['quantidade'].value)
+    let produto = evento.target.elements['produto']
+    let quantidade = evento.target.elements['quantidade']
+    
+    criaElemento(produto.value, quantidade.value)
+
+    produto.value = ""
+    quantidade.value = ""
 })
 
-function criaProduto(produto, quantidade){
-    console.log(produto)
-    console.log(quantidade)
+function criaElemento (produto, quantidade){
+    let novoItem = document.createElement('li');
+    novoItem.classList.add('item');
 
-    // <li class="item"><strong>3</strong>Azeitona</li>
-    const novoProduto = document.createElement('li')
-    novoProduto.classList.add('item')
+    let quantidadeItem = document.createElement('strong');
+    quantidadeItem.innerHTML = quantidade;
 
-    const quantidadeProduto = document.createElement('strong')
-    quantidadeProduto.innerHTML = quantidade
+    novoItem.appendChild(quantidadeItem);
+    novoItem.innerHTML += produto;
 
-    novoProduto.appendChild(quantidadeProduto)
-    novoProduto.innerHTML += produto
+    lista.appendChild(novoItem);
 
-    document.getElementById('lista').appendChild(novoProduto)
+    let itemAtual = {
+        "produto": produto,
+        "quantidade": quantidade
+    }
+
+    itens.push(itemAtual)
+
+    localStorage.setItem('item', JSON.stringify(itens))
 }
