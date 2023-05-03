@@ -33,5 +33,5 @@ function criaElemento (produto, quantidade){
 
     itens.push(itemAtual)
 
-    localStorage.setItem('item', JSON.stringify(itens))
+    localStorage.setItem('itens', JSON.stringify(itens))
 }
