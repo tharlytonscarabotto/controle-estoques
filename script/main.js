@@ -1,6 +1,10 @@
 let formulario = document.getElementById('formulario');
 let lista = document.getElementById('lista');
-let itens = []
+let itens = JSON.parse(localStorage.getItem('itens')) || [];
+
+itens.forEach( (elemento) => {
+    console.log(elemento.produto, elemento.quantidade)
+})
 
 formulario.addEventListener('submit', (evento)=>{
     evento.preventDefault();
