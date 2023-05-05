@@ -3,7 +3,7 @@ let lista = document.getElementById('lista');
 let itens = JSON.parse(localStorage.getItem('itens')) || [];
 
 itens.forEach( (elemento) => {
-    console.log(elemento.produto, elemento.quantidade)
+    criaElemento(elemento)
 })
 
 formulario.addEventListener('submit', (evento)=>{
@@ -11,31 +11,31 @@ formulario.addEventListener('submit', (evento)=>{
 
     let produto = evento.target.elements['produto']
     let quantidade = evento.target.elements['quantidade']
+
+    let itemAtual = {
+        "produto": produto.value,
+        "quantidade": quantidade.value
+    }
     
-    criaElemento(produto.value, quantidade.value)
+    criaElemento(itemAtual)
+
+    itens.push(itemAtual)
+
+    localStorage.setItem('itens', JSON.stringify(itens))
 
     produto.value = ""
     quantidade.value = ""
 })
 
-function criaElemento (produto, quantidade){
+function criaElemento (item){
     let novoItem = document.createElement('li');
     novoItem.classList.add('item');
 
     let quantidadeItem = document.createElement('strong');
-    quantidadeItem.innerHTML = quantidade;
+    quantidadeItem.innerHTML = item.quantidade;
 
     novoItem.appendChild(quantidadeItem);
-    novoItem.innerHTML += produto;
+    novoItem.innerHTML += item.produto;
 
     lista.appendChild(novoItem);
-
-    let itemAtual = {
-        "produto": produto,
-        "quantidade": quantidade
-    }
-
-    itens.push(itemAtual)
-
-    localStorage.setItem('itens', JSON.stringify(itens))
 }
