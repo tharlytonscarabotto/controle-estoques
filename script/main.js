@@ -12,14 +12,26 @@ formulario.addEventListener('submit', (evento)=>{
     let produto = evento.target.elements['produto']
     let quantidade = evento.target.elements['quantidade']
 
+    let existe = itens.find(elemento => elemento.produto === produto.value)
+
     let itemAtual = {
         "produto": produto.value,
         "quantidade": quantidade.value
     }
     
-    criaElemento(itemAtual)
+    if(existe){
+        itemAtual.id = existe.id
 
-    itens.push(itemAtual)
+        atualizaElemento (itemAtual)
+
+        itens[existe.id] = itemAtual
+    } else{
+        itemAtual.id = itens.length
+
+        criaElemento(itemAtual)
+
+        itens.push(itemAtual)
+    }
 
     localStorage.setItem('itens', JSON.stringify(itens))
 
@@ -33,9 +45,13 @@ function criaElemento (item){
 
     let quantidadeItem = document.createElement('strong');
     quantidadeItem.innerHTML = item.quantidade;
-
+    quantidadeItem.dataset.id = item.id
     novoItem.appendChild(quantidadeItem);
     novoItem.innerHTML += item.produto;
 
     lista.appendChild(novoItem);
+}
+
+function atualizaElemento(item){
+    document.querySelector("[data-id='"+item.id+"']").innerHTML = item.quantidade
 }
