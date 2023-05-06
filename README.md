@@ -10,4 +10,4 @@ Sistema básico onde são inseridos os produtos e quantidades para controle de e
 [X] Eliminar a lista do HTML e usar somente o Local Storage para atualizar a lista
 [X] Fazer com que o que está na localStorage seja jogado para a lista automaticamente
 [X] Possibilitar a atualização destes estoques
-[ ] Conseguir excluir um item se ele não estiver mais
+[X] Conseguir excluir um item se ele não estiver mais
