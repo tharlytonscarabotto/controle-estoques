@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: aliceblue;
+    background-color: #e7fcbe;
     font-family: 'Kanit', sans-serif;
     font-weight: 400;
 }
@@ -21,7 +21,14 @@ body {
     border: solid 2px black;
     padding: 1rem;
     text-align: end; 
-    background-color: rgb(175, 245, 245);   
+    background-color: #d0faa5;  
+}
+
+.formulario__botao{
+    background: black;
+    color: white;
+    padding: .3rem;
+    border-radius: 10px;
 }
 
 .lista {
@@ -30,19 +37,22 @@ body {
 }
 
 .item {
-    background-color: rgb(42, 151, 165);
+    background-color: #d0faa5;
     list-style: none;
     padding: 0.3rem 1rem;
+    border: solid 1px black;
     border-radius: .5rem;
     margin-bottom: .3rem;
     align-items: center;
     gap: 2rem;
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .item strong {
-    background: rgb(115, 118, 133);
+    background: black;
+    color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
